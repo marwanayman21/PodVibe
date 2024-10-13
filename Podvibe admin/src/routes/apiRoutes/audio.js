@@ -15,6 +15,8 @@ const uploaderFiles = uploader.fields([
 router.post("/", [admin, uploaderFiles], audioEndPoint.createAudio);
 router.get("/", auth, audioEndPoint.getAllAudio);
 
+router.get("/some", auth, audioEndPoint.getSomeAudio);
+
 router.put("/:id", [validObjectId, admin], audioEndPoint.updateAudioById);
 router.delete("/:id", [validObjectId, admin], audioEndPoint.deleteAudioById);
 

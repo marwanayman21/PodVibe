@@ -29,7 +29,7 @@ block content
                 td(class='p-4')= audio.desc
                 td(class='p-4')= audio.performer
                 td(class='p-4')
-                  a(href=`/playlists/delete/${audio._id}/${audio.album}` class='text-red-500 hover:text-red-700 mr-2 text-3xl font-bold') &#10007;
+                  a(href=`/playlists/delete/${audio._id}/${album._id}` class='text-red-500 hover:text-red-700 mr-2 text-3xl font-bold') &#10007;
       else
         //- No Albums Warning
         div(class='w-full max-w-4xl bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative')

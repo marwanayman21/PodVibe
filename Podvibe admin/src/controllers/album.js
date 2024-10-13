@@ -183,7 +183,6 @@ const renderAudiosInAlbum = async (req, res) => {
     const audioIds = album.audios;
 
     const audios = await audioModel.find({ _id: { $in: audioIds } });
-
     res
       .status(200)
       .render("albums/audiosInAlbum", { album, audios, activePage: "albums" });
@@ -199,16 +198,14 @@ const deleteAudioFromAlbum = async (req, res) => {
   try {
     const { audio_id, album_id } = req.params;
 
-    const updatedAlbum = await albumModel.findByIdAndUpdate(
-      album_id,
-      { $pull: { audios: audio_id } },
-      { new: true } // Returns the updated document
-    );
+    await albumModel.findByIdAndUpdate(album_id, {
+      $pull: { audios: audio_id },
+    });
 
     res.status(200).redirect("/albums");
   } catch (err) {
     res.status(400).render("error", {
-      message: `Error happened while rendering audios in Album`,
+      message: `Error happened while deleting audios in Album`,
       back_url: "/albums",
     });
   }

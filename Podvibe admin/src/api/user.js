@@ -4,13 +4,10 @@ const { userModel, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
 
 const createUser = async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).json({ message: error.details[0].message });
-
   const user = await userModel.findOne({ email: req.body.email });
   if (user) {
     return res
-      .status(403)
+      .status(409)
       .json({ message: "User with given email already exist!" });
   }
   const salt = await bcrypt.genSalt(Number(process.env.SALT));
@@ -41,7 +38,7 @@ const AuthenticateUser = async (req, res) => {
     return res.status(400).json({ message: "Invalid email or password" });
   }
   const token = user.generateAuthToken();
-  res.status(200).json({ data: token, message: "Signing in please wait..." });
+  res.status(200).json({  status: "success", data: token, message: "Signing in please wait..." });
 };
 
 const getAllUsers = async (req, res) => {

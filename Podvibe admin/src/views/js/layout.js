@@ -19,10 +19,10 @@ async function fetchCounts() {
         fetch(API_URLS.albums),
         fetch(API_URLS.users),
       ]);
-    console.log(audiosResponse);
-    console.log(playlistsResponse);
-    console.log(albumsResponse);
-    console.log(usersResponse);
+    // console.log(audiosResponse);
+    // console.log(playlistsResponse);
+    // console.log(albumsResponse);
+    // console.log(usersResponse);
 
     if (
       !audiosResponse.ok ||
@@ -30,7 +30,6 @@ async function fetchCounts() {
       !albumsResponse.ok ||
       !usersResponse.ok
     ) {
-      console.log("error happened");
       throw new Error("Error fetching data");
     }
 
@@ -38,8 +37,8 @@ async function fetchCounts() {
     const playlistsCount = await playlistsResponse.json();
     const albumsCount = await albumsResponse.json();
     const usersCount = await usersResponse.json();
-    console.log(audiosCount);
-    console.log(audiosCount);
+    // console.log(audiosCount);
+    // console.log(audiosCount);
     // Update the DOM with the fetched counts
     document.getElementById("total-audios").textContent =
       audiosCount.count || 0;

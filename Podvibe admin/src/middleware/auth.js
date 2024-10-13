@@ -8,12 +8,14 @@ module.exports = (req, res, next) => {
       .status(400)
       .send({ message: "Access denied, no token provided" });
   }
-  jwt.verify(token, process.env.JWTPRIVATEKEY, (err, validToken) => {
+  jwt.verify(token, process.env.JWTPRIVATEKEY, (err, decodedToken) => {
     if (err) {
       return res.status(400).send({ message: "Invalid token" });
-    } else {
-      req.user = validToken;
-      next();
     }
+
+    // console.log(decodedToken);
+    
+    req.user = decodedToken;
+    next();
   });
 };

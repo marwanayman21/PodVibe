@@ -11,17 +11,15 @@ html(lang="en")
       //- Navbar
       nav(class='bg-black text-white p-4 flex justify-between items-center')
         if activePage == 'dashboard'
-          img(src='../public/PodVibe-icon.jpg', alt='PodVibe Logo' class='h-16 rounded-lg')
+          img(src='../images/full-logo1.jpg', alt='PodVibe Logo' class='h-20 rounded-lg ms-4')
         else
-          img(src='../../public/PodVibe-icon.jpg', alt='PodVibe Logo' class='h-16 rounded-lg')
+          img(src='../../images/full-logo1.jpg', alt='PodVibe Logo' class='h-16 rounded-lg')
 
         ul(class='flex space-x-4')
           li
-            a(href='#' class='hover:underline') Home
+            a(href='/about' class='hover:underline') About
           li
-            a(href='#' class='hover:underline') About
-          li
-            a(href='#' class='hover:underline') Contact
+            a(href='/users/logout' class='hover:underline') Logout
 
       //- Main Content with Sidebar
       div(class='flex flex-1 w-full')

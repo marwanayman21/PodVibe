@@ -6,7 +6,7 @@ const validObjectId = require("../../middleware/validObjectId");
 
 const userEndpoint = require("../../api/user");
 
-router.post("/", userEndpoint.createUser);
+// router.post("/auth/signup", userEndpoint.createUser);
 router.get("/", admin, userEndpoint.getAllUsers);
 router.get("/:id", [validObjectId, auth], userEndpoint.getUserById);
 router.put("/:id", [validObjectId, auth], userEndpoint.updateUserById);

@@ -1,24 +1,33 @@
 const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
-  const token = req.header("x-auth-token");
+  // console.log(req.cookies.token);
+  
+  const token = req.cookies.token || req.header("x-auth-token");
   if (!token) {
+    console.log("token not available");
+    
     return res
       .status(400)
-      .send({ message: "Access denied, no token provided" });
+      .redirect("/register/signup")
   }
-  jwt.verify(token, process.env.JWTPRIVATEKEY, (err, validToken) => {
-    if (err) {
-      return res.status(400).send({ message: "Invalid token" });
-    } else {
-      if (!validToken.isAdmin) {
-        //not an admin
-        res
-          .status(403)
-          .send({ message: "You don't have access to this content" });
-      }
-      req.user = validToken;
-      next();
+  try{
+    const decodedToken = jwt.verify(token, process.env.JWTPRIVATEKEY);
+    
+    if(!decodedToken.isAdmin){ // not an admin
+      return res.status(403).render("error", {
+        message: "You don't have access to this content",
+        back_url: "/",
+      });
     }
-  });
+    req.user = decodedToken;
+    next();
+  }catch (err){
+    console.error(err);
+    return res.status(400).render("error", {
+      message: "Error while Authenticating admin",
+      back_url: "/register/signin",
+    });
+  }
+
 };

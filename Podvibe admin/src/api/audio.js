@@ -118,6 +118,20 @@ const getAudioCount = async (req, res) => {
   }
 };
 
+const getSomeAudio = async (req, res) => {
+  try {
+    const numberOfRandomAudios = 6;
+
+    const audios = await audioModel.aggregate([
+      { $sample: { size: numberOfRandomAudios } }
+    ]);
+
+    res.status(200).json({ success: true, data: audios });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
+
 module.exports = {
   createAudio,
   getAllAudio,
@@ -126,4 +140,5 @@ module.exports = {
   likeAudioById,
   getAllLikedAudio,
   getAudioCount,
+  getSomeAudio,
 };

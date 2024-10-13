@@ -38,6 +38,20 @@ const getAllAlbum = async (req, res) => {
   }
 };
 
+const getSomeAlbum = async (req, res) => {
+  try {
+    const numberOfRandomAlbums = 6;
+
+    const albums = await albumModel.aggregate([
+      { $sample: { size: numberOfRandomAlbums } }
+    ]);
+
+    res.status(200).json({ success: true, data: albums });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
+
 const deleteAlbumById = async (req, res) => {
   try {
     await albumModel.findByIdAndDelete(req.params.id);
@@ -79,4 +93,5 @@ module.exports = {
   deleteAlbumById,
   addAudio,
   getAlbumCount,
+  getSomeAlbum,
 };

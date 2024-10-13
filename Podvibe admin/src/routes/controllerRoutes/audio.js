@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const auth = require("../../middleware/auth");
 const admin = require("../../middleware/admin");
 const validObjectId = require("../../middleware/validObjectId");
 const uploader = require("../../middleware/multer");
@@ -14,7 +13,7 @@ const uploaderFiles = uploader.fields([
 
 router.get("/audios", audioController.renderMainView);
 router.get("/audios/create", audioController.renderCreationView);
-router.post("/audios/create", uploaderFiles, audioController.createAudio);
+router.post("/audios/create",  uploaderFiles, audioController.createAudio);
 
 router.get("/audios/delete/:id", audioController.deleteAudioById);
 
@@ -25,13 +24,14 @@ router.post(
   audioController.updateAudioById
 );
 
-//ADD ICON IN INDEX TO DIRECT TO THIS LINK AND MAKE IT SEND THE AUDIO ID
 router.get(
   "/audios/addAudioToAlbum/:id",
   audioController.renderAddAudioToAlbum
 );
-// DO THE PUG FILE FOR THIS AND MAKE IT SEND THE ALBUM ID
+
 router.get("/audios/addAudioToAlbum1/:id", audioController.AddAudioToAlbum);
+
+module.exports = router;
 
 // router.post("/", [uploaderFiles], audioController.createAudio);
 // router.get("/", audioController.getAllAudio);
@@ -44,4 +44,3 @@ router.get("/audios/addAudioToAlbum1/:id", audioController.AddAudioToAlbum);
 
 // router.get("/get/count", audioController.getAudioCount);
 
-module.exports = router;

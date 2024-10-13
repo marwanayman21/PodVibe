@@ -122,7 +122,7 @@ const createAudio = async (req, res) => {
     console.log(err);
 
     return res.status(400).render("error", {
-      message: "Error happened while creating Album",
+      message: "Error happened while creating Audio",
       back_url: "/audios",
     });
   }
@@ -130,7 +130,7 @@ const createAudio = async (req, res) => {
 
 const deleteAudioById = async (req, res) => {
   try {
-    const audio = await albumModel.findById(req.params.id);
+    const audio = await audioModel.findById(req.params.id);
     if (!audio) {
       return res.status(404).send({ message: "Audio not found" });
     }
@@ -164,17 +164,15 @@ const updateAudioById = async (req, res) => {
       });
     }
     let audioData = { ...req.body };
-
-    if (req.files.image[0]) {
+    
+    if (req.files.image) {
       const imageFile = req.files.image[0];
       const uploadedImage = await cloudinary.uploader.upload(imageFile.path, {
         resource_type: "image",
       });
       audioData.image = uploadedImage.secure_url;
     }
-
     await audioModel.findByIdAndUpdate(audioId, audioData, { new: true });
-
     res.status(201).redirect("/audios");
   } catch (err) {
     res.status(400).render("error", {

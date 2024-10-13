@@ -28,6 +28,8 @@ router.get("/random", auth, playlistEndPoint.getRandomPlaylist);
 //returns playlist and audios within this playlist
 router.get("/", auth, playlistEndPoint.getAllPlaylists);
 
+router.get("/some", auth, playlistEndPoint.getSomePlaylist);
+
 router.get("/:id", [validObjectId, auth], playlistEndPoint.getPlaylistById);
 
 router.delete(

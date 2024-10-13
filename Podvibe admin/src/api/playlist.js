@@ -174,6 +174,20 @@ const getPlaylistCount = async (req, res) => {
   }
 };
 
+const getSomePlaylist = async (req, res) => {
+  try {
+    const NRandomPlaylists = 6;
+
+    const playlists = await playlistModel.aggregate([
+      { $sample: { size: NRandomPlaylists } }
+    ]);
+
+    res.status(200).json({ success: true, data: playlists });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
+
 module.exports = {
   createPlaylist,
   editPlaylistById,
@@ -185,4 +199,5 @@ module.exports = {
   getAllPlaylists,
   deletePlaylistById,
   getPlaylistCount,
+  getSomePlaylist,
 };

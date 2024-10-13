@@ -26,8 +26,7 @@ block content
             tr(class=(index % 2 === 0 ? 'bg-gray-100' : 'bg-white'))
               td(class='p-4')
                 img(src=playlist.image alt=playlist.name class='w-20 h-20 object-cover rounded-lg')
-              td(class='p-4')
-                a(href=`/playlists/show-audios/${playlist._id}` class='text-blue-500 hover:text-blue-700 hover:cursor-pointer text-lg')= playlist.name
+              td(class='p-4')= playlist.name
               td(class='p-4')= playlist.desc
               td(class='p-4')= playlist.user.name
               td(class='p-4 flex mt-2')

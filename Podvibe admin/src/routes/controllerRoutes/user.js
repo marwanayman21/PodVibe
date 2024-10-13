@@ -16,6 +16,8 @@ const userController = require("../../controllers/user");
 
 router.get("/users", userController.renderMainView);
 
+router.get("/users/logout", userController.logoutUser);
+
 router.get("/users/create", userController.renderCreationView);
 router.post("/users/create", userController.createUser);
 

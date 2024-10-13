@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 const renderMainView = async (req, res) => {
   try {
-    const users = await userModel.find({}).select("name gender email");
+    const users = await userModel.find({}).select("name gender email isAdmin");
     // .select("name gender image likedAudios playlists");
     // .populate("audios", "name performer image"); // populate audios with only these attributes
 
@@ -18,34 +18,50 @@ const renderMainView = async (req, res) => {
   }
 };
 
+const logoutUser = (req, res) => {
+  // Clear the token cookie
+  res.clearCookie("token");
+
+  // Redirect the user to the login page
+  res.status(200).redirect("/register/signin");
+};
+
 const renderCreationView = async (req, res) => {
   res.status(200).render("users/create", { activePage: "users" });
 };
 
+
 const createUser = async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).json({ message: error.details[0].message });
+  try{
+  
+    const user = await userModel.findOne({ email: req.body.email });
+    if (user) {
+      return res.status(400).render("error", {
+        message: "User with given email already exist!",
+        back_url: "/users",
+      });
+    }
+    const salt = await bcrypt.genSalt(Number(process.env.SALT));
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    
+    const isAdmin = req.body.isAdmin === 'true';
+    
+    let newUser = await new userModel({
+      ...req.body,
+      isAdmin: isAdmin,
+      password: hashedPassword,
+    }).save();
 
-  const user = await userModel.findOne({ email: req.body.email });
-  if (user) {
-    return res
-      .status(403)
-      .json({ message: "User with given email already exist!" });
+    newUser.password = undefined;
+     newUser.__v = undefined;
+    res.status(201).redirect("/users");
+  } catch(err){
+      console.error(err);
+      return res.status(400).render("error", {
+        message: "Error while creating user",
+        back_url: "/users",
+      });
   }
-  const salt = await bcrypt.genSalt(Number(process.env.SALT));
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-  let newUser = await new userModel({
-    ...req.body,
-    password: hashedPassword,
-  }).save();
-
-  newUser.password = undefined;
-  newUser.__v = undefined;
-
-  res.status(200).json({
-    data: newUser,
-    message: "Account created successfuly!",
-  });
 };
 
 const AuthenticateUser = async (req, res) => {
@@ -82,7 +98,7 @@ const updateUserById = async (req, res) => {
 
 const deleteUserById = async (req, res) => {
   const user = await userModel.findByIdAndDelete(req.params.id);
-  res.status(200).send({ message: "Succesfully Deleted User" });
+  res.status(202).redirect("/users");
 };
 
 module.exports = {
@@ -94,4 +110,5 @@ module.exports = {
   updateUserById,
   deleteUserById,
   renderCreationView,
+  logoutUser,
 };
