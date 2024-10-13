@@ -30,10 +30,10 @@ const AuthContainer = () => {
                 <div className="toggle-container flex justify-between mt-4">
                     <button
                         id="login"
-                        className={`w-full p-2 text-white rounded-lg ${isSignUpState ? 'bg-purple-800' : 'bg-purple-600'} transition duration-300`}
+                        className={`w-full p-2 text-white rounded-lg ${isSignUpState ? 'bg-green-800' : 'bg-green-600'} transition duration-300`}
                         onClick={toggleForms}
                     >
-                        {isSignUpState ? 'Switch to Login' : 'Switch to Sign Up'}
+                        {isSignUpState ? 'Log In instead?' : 'Sign Up instead?'}
                     </button>
                 </div>
             </div>
