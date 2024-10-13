@@ -24,7 +24,7 @@ const Player = () => {
                 <img className='w-14 h-14 rounded-lg object-cover object-center p-0.5' src={track.image} alt={track.name} />
                 <div className='space-y-0.5'>
                     <h6 className="text-sm text-neutral-200 font-semibold">{track.name}</h6>
-                    <p className="text-xs text-neutral-400 font-normal">{track.performer.slice(0, 12)}</p>
+                    <p className="text-xs text-neutral-400 font-normal">{track.performer}</p>
                 </div>
             </div>
 
