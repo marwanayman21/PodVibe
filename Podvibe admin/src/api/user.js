@@ -21,6 +21,7 @@ const createUser = async (req, res) => {
   newUser.__v = undefined;
 
   res.status(200).json({
+    success: true,
     data: newUser,
     message: "Account created successfuly!",
   });
