@@ -23,49 +23,44 @@ focuses on providing an intuitive and seamless experience for podcast enthusiast
 - Get Ready for freelance market 
 
 ## Key Features
-- **User Authentication:** Users can sign up, log in, and manage their profiles with verification code during signup (notification via email).
-- **Profile Management:** Users can update personal details, add work experience, education, and skills.
-- **Networking:** Connect with other users, send connection requests, and accept them.
-- **Feed & Posts:** Users can create posts, like, comment, share posts, and interact with others' content.
-- **Messaging:** Direct messaging between users.
-- **Notifications:** Real-time notifications for connection requests, connection responses, messages, and post interactions.
+- **User Authentication:** Users can sign up, log in.
+- **Feed:** Users views multiple audios & artists & albums on home page.
 - **Admin Features:** 
-  - Ability to view all users, posts, comments
-  - Manage all interactions and content
+  - Ability to view all users, audios, playlists, albums
+  - Create,Delete users,playlists,audios,albums
+  - View Audios inside each album.
+  - Add Audio to certain album/playlist
+  - View basic statistics for users, albums, playlists, audios
+  - Update audio, album, playlist info
 
 ## Tech Stack
 - **Frontend:**
   - React (with hooks)
-  - Tailwind CSS / Bootstrap for UI design
-  - Redux for state management
+  - Tailwind CSS for UI design
   - Axios for API requests
-  - Material UI for design components
 - **Backend:**
   - Node.js with Express for handling API requests
   - MongoDB (NoSQL) for the database
   - JWT for user authentication
-  - Pug for server-side rendering pages
-  - Cloudinary for managing and optimizing assets
+  - PUG for server-side rendering pages
+  - Cloudinary for containing images/audios
 - **Version Control:** Git, GitHub
-- **Project Management Tools:**
-  - ClickUp
-  - Google Docs
-  - Miro
 
 ## Usage
 1. Sign up for a new account.
 2. Sign in to your account.
-3. Add your personal information.
-4. Find new connections and connect with them.
-5. Start creating posts.
-6. Like, comment, and share content from others.
+3. Explore audios.
+4. Explore available artists and audios made by them.
+5. Discover albums and audios included inside them.
+6. Create playlists (not 100% done).
+7. Like audios to add to user specific playlist(not 100% done)
 
 ## Challenges & Solutions
 - Choosing the right tools to use          -> Search for all the given options and select the best possible solution for given case.
 - Uploading real audio files to a database -> Used Cloudinary to host the images/audio files which is saved into mongodb as a url.
 - Implementing a proper authentication and authorization system.
 
-## What You Learned
+## What We Learned
 - Improved knowledge of React.
 - Improved knowledge of Node.js.
 - Worked on a full-stack project.
@@ -75,7 +70,7 @@ focuses on providing an intuitive and seamless experience for podcast enthusiast
   - Cloudinary
   - Refactoring techniques
   - New hooks and events
-  - Efficient use of pug template engine
+  - Efficient use of PUG template engine
   - NoSQL queries
 
 ## Future Improvements
@@ -83,3 +78,4 @@ focuses on providing an intuitive and seamless experience for podcast enthusiast
 - Add functionality to control sound level.
 - Integration with AI models to suggest certain audios for user based on past activities.
 - Further enhance UI.
+- Complete Liked audio functionality
