@@ -12,6 +12,7 @@
 
 ## Project Overview
 **Title:** PodVibe
+
 **Description:** PodVibe is a comprehensive podcast streaming platform built using the MERN stack (MongoDB, Express.js, React, and Node.js). Inspired by the functionality of Spotify, PodVibe 
 focuses on providing an intuitive and seamless experience for podcast enthusiasts. With a modern user interface, it enables users to discover and stream podcasts effortlessly, offering a specialized platform tailored specifically for podcast content.
 
