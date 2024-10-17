@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userEndpoint = require("../../api/user");
 
-router.post("/auth/signin", userEndpoint.AuthenticateUser); //login
-router.post("/auth/signup", userEndpoint.createUser); //sign up
+router.post("/signin", userEndpoint.AuthenticateUser); //login
+router.post("/signup", userEndpoint.createUser); //sign up
 
 module.exports = router;
