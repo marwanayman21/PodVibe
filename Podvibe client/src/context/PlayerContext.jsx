@@ -8,7 +8,7 @@ const PlayerContextProvider = (props) => {
     const seekBg = useRef();
     const seekBar = useRef();
 
-    const url = 'http://localhost:8081/api';
+    const url = 'http://localhost:8080/api';
 
     const [songsData, setSongsData] = useState([]);
     const [albumsData, setAlbumsData] = useState([]); // Initialize albumsData
