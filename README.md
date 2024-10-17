@@ -7,7 +7,7 @@
 ## Contributors
 - [Seif Gamal Al-Rahmany](https://www.linkedin.com/in/seif-al-rahmany-b6b29b220/)
 - [Seif elrahman alfakharany](https://www.linkedin.com/in/seif-elrahman-alfakharany-5960151b5/)
-- [Marawab Ayman]
+- [Marawan Ayman]
   
 
 ## Project Overview
