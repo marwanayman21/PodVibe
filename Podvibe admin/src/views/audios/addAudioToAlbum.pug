@@ -20,8 +20,7 @@ block content
             tr(class=(index % 2 === 0 ? 'bg-gray-100' : 'bg-white'))
               td(class='p-4')
                 img(src=album.image alt=album.name class='w-20 h-20 object-cover rounded-lg')
-              td(class='p-4')
-                a(href=`/albums/show-audios/${album._id}` class='text-blue-500 hover:text-blue-700 hover:cursor-pointer text-lg')= album.name
+              td(class='p-4')= album.name
               td(class='p-4')= album.desc
               td(class='p-4')
                 a(href=`/audios/addAudioToAlbum1/${album._id}` class='text-green-500 hover:text-green-700 mr-2 text-4xl font-bold') &#43; 
