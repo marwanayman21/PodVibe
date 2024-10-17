@@ -1,8 +1,8 @@
 # LinkedIn Clone
 
 ## Links 
-- [Power Point](https://docs.google.com/presentation/d/13r656DaZeqE7zmsxTH0VOlO1nSuBDpFwAU04WDZU_ZQ/edit#slide=id.p1)
-- [Doc](https://docs.google.com/document/d/1gwz5A2mod_O4o18sR-xuqEAteF1NftavCIQgFqthcFw/edit?tab=t.0)
+- [Power Point](https://drive.google.com/file/d/1bYo3AHJV_T4Q6m7A3xa0_WDwvg4UbcjT/view?usp=sharing)
+- [Doc](https://drive.google.com/file/d/1H5nqL170UagHULqTCy-Pe7Qgsi038b2Q/view?usp=sharing)
   
 ## Contributors
 - [Seif Gamal Al-Rahmany](https://www.linkedin.com/in/seif-al-rahmany-b6b29b220/)
