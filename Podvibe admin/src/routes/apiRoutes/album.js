@@ -10,8 +10,8 @@ const albumEndPoint = require("../../api/album");
 const uploaderFiles = uploader.single("image"); //it will be carried inside req.file since it's single
 
 router.post("/", [admin, uploaderFiles], albumEndPoint.createAlbum);
-router.get("/", auth, albumEndPoint.getAllAlbum);
-router.get("/some", auth, albumEndPoint.getSomeAlbum);
+router.get("/", albumEndPoint.getAllAlbum);
+router.get("/some",  albumEndPoint.getSomeAlbum);
 router.delete("/:id", [validObjectId, admin], albumEndPoint.deleteAlbumById);
 router.put("/add-audio", admin, albumEndPoint.addAudio);
 
