@@ -26,9 +26,9 @@ router.get("/favorite", auth, playlistEndPoint.getUserPlaylists);
 router.get("/random", auth, playlistEndPoint.getRandomPlaylist);
 
 //returns playlist and audios within this playlist
-router.get("/", auth, playlistEndPoint.getAllPlaylists);
+router.get("/",  playlistEndPoint.getAllPlaylists);
 
-router.get("/some", auth, playlistEndPoint.getSomePlaylist);
+router.get("/some",  playlistEndPoint.getSomePlaylist);
 
 router.get("/:id", [validObjectId, auth], playlistEndPoint.getPlaylistById);
 
