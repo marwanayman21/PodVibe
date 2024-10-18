@@ -1,3 +1,6 @@
+# Important Note:
+(npm install) doesn't download joi even though it's not in the dependent's list so you'll need to use (npm install joi)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
