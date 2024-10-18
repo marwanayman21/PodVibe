@@ -14,7 +14,7 @@ const Artists = () => {
       {/* Artists list */}
       <div className='flex overflow-auto'>
         <div className='w-full grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2'>
-          {albumsData.map((item, index) => (
+          {albumsData.slice(0, 5).map((item, index) => (
             <ArtistCard
               key={index}
               name={item.name}
@@ -22,7 +22,7 @@ const Artists = () => {
               id={item._id}
               image={item.image}
             />
-          ))}        
+          ))}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const isStateEmpty = (state) => {
   return Object.keys(state).some((key) => !state[key]);
 };
 
-const url = "http://localhost:8080/api";
+const url = "http://localhost:8081/api";
 
 export default function Signup() {
     const [user, setUser] = useState(null);

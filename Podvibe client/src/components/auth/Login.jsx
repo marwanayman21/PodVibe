@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const url = "http://localhost:8080/api";
+const url = "http://localhost:8081/api";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,8 +28,8 @@ export default function Login() {
 
       if (response.status === 200) {
         // Assuming the response contains the user data
-        localStorage.setItem("auth", JSON.stringify(response.data));
-        setToken(response.data.data); //stores Token
+        localStorage.setItem("auth", JSON.stringify(response.data.user));
+        setToken(response.data.token); //stores Token
         navigate("/"); 
       }
     } catch (error) {
