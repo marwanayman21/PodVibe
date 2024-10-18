@@ -28,7 +28,7 @@ const registerRoutes = require("./src/routes/controllerRoutes/authentication");
 
 //app configuration
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "pug");

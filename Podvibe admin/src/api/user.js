@@ -39,7 +39,7 @@ const AuthenticateUser = async (req, res) => {
     return res.status(400).json({ message: "Invalid email or password" });
   }
   const token = user.generateAuthToken();
-  res.status(200).json({  status: "success", data: token, message: "Signing in please wait..." });
+  res.status(200).json({  status: "success", token: token, user:user });
 };
 
 const getAllUsers = async (req, res) => {
