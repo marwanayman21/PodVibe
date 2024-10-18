@@ -1,4 +1,4 @@
-# LinkedIn Clone
+# PodVibe
 
 ## Links 
 - [Power Point](https://drive.google.com/file/d/1bYo3AHJV_T4Q6m7A3xa0_WDwvg4UbcjT/view?usp=sharing)
